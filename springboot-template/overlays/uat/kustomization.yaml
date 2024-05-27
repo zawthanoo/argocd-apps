@@ -17,4 +17,4 @@ secretGenerator:
 images:
   - name: ghcr.io/zawthanoo/springboot-template
     newName: ghcr.io/zawthanoo/springboot-template
-    newTag: ghcr.io/zawthanoo/springboot-template:1.0.0-18-58c3fa2
+    newTag: ghcr.io/zawthanoo/springboot-template:1.0.0-20-8e86604
