@@ -19,4 +19,4 @@ secretGenerator:
 images:
   - name: ghcr.io/zawthanoo/spring-rest-helloworld
     newName: ghcr.io/zawthanoo/spring-rest-helloworld
-    newTag: ghcr.io/zawthanoo/spring-rest-helloworld:1.0.0-6-d498473
+    newTag: 1.0.0-7-27aec81
