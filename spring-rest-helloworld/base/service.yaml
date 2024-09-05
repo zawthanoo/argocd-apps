@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: springboot-template
+  name: spring-rest-helloworld
   labels:
-    app: springboot-template  
+    app: spring-rest-helloworld  
 spec:
   selector:
-    app: springboot-template
+    app: spring-rest-helloworld
   type: ClusterIP
   sessionAffinity: None
   ports:

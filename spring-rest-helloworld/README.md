@@ -5,15 +5,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: springboot-template
+  name: spring-rest-helloworld
 spec:
   destination:
     name: ''
-    namespace: devteam
+    namespace: uat
     server: 'https://kubernetes.default.svc'
   source:
-    repoURL: 'https://github.com/jp-rosa-pilot/argocd-apps.git'
-    path: springboot-template/overlays/uat
+    repoURL: 'https://github.com/zawthanoo/argocd-apps.git'
+    path: spring-rest-helloworld/overlays/uat
     targetRevision: HEAD
   sources: []
   project: default

@@ -4,17 +4,17 @@ resources:
   - ../../base
 namePrefix: uat-
 configMapGenerator:
-  - name: springboot-template
+  - name: spring-rest-helloworld
     files:
       - application_config_override.yaml
     literals:
       - MAX_JVM_MEMORY=512
       - MIN_JVM_MEMORY=512
 secretGenerator:
-  - name: springboot-template
+  - name: spring-rest-helloworld
     files:
       - application_secret_override.yaml
 images:
-  - name: ghcr.io/zawthanoo/springboot-template
-    newName: ghcr.io/zawthanoo/springboot-template
-    newTag: ghcr.io/zawthanoo/springboot-template:1.0.0-23-12685c8
+  - name: ghcr.io/zawthanoo/spring-rest-helloworld
+    newName: ghcr.io/zawthanoo/spring-rest-helloworld
+    newTag: 1.0.0-2-84017e3
