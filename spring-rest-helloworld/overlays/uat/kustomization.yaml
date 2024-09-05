@@ -3,10 +3,8 @@ kind: Kustomization
 resources:
   - ../../base
 namePrefix: uat-
-
 generatorOptions:
- disableNameSuffixHash: true
-
+  disableNameSuffixHash: true
 configMapGenerator:
   - name: spring-rest-helloworld
     files:
@@ -21,4 +19,4 @@ secretGenerator:
 images:
   - name: ghcr.io/zawthanoo/spring-rest-helloworld
     newName: ghcr.io/zawthanoo/spring-rest-helloworld
-    newTag: 1.0.0-5-1d957df
+    newTag: 1.0.0-7-27aec81
