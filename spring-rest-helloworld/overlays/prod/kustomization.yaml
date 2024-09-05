@@ -6,6 +6,9 @@ resources:
 
 namePrefix: prod-
 
+generatorOptions:
+ disableNameSuffixHash: true
+
 configMapGenerator:
 - name: spring-rest-helloworld
   files:

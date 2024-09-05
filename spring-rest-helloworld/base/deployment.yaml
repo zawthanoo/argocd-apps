@@ -3,9 +3,9 @@ kind: Deployment
 metadata:
   name: spring-rest-helloworld
   labels:
-    pipelinesascode.tekton.dev/on-event: pull_request
-    pipelinesascode.tekton.dev/on-target-branch: devteam
-    repo_name: spring-rest-helloworld
+#    pipelinesascode.tekton.dev/on-event: pull_request
+#    pipelinesascode.tekton.dev/on-target-branch: devteam
+#    repo_name: spring-rest-helloworld
     app: spring-rest-helloworld
 spec:
   replicas: 1
