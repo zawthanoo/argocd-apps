@@ -12,8 +12,8 @@ configMapGenerator:
     files:
       - application_config_override.yaml
     literals:
-      - MAX_JVM_MEMORY=512
-      - MIN_JVM_MEMORY=512
+      - MAX_JVM_MEMORY=256
+      - MIN_JVM_MEMORY=256
 secretGenerator:
   - name: spring-rest-helloworld
     files:
@@ -21,4 +21,4 @@ secretGenerator:
 images:
   - name: ghcr.io/zawthanoo/spring-rest-helloworld
     newName: ghcr.io/zawthanoo/spring-rest-helloworld
-    newTag: 1.0.0-4-b7560c6
+    newTag: 1.0.0-5-1d957df
