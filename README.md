@@ -1,7 +1,7 @@
 
 ### Ingress Setup
 
-Install
+Install ingress-nginx (https://kubernetes.github.io/ingress-nginx/deploy/)
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.2/deploy/static/provider/cloud/deploy.yaml
 ```
