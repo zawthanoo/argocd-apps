@@ -22,18 +22,18 @@ spec:
           image: ghcr.io/zawthanoo/spring-rest-helloworld:1.0.0-5-70eccea
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
+            - containerPort: 8082
               protocol: TCP
           readinessProbe:
             httpGet:
-              path: /demo/actuator/health/readiness
+              path: /spring-hello/actuator/health/readiness
               port: 8080
               scheme: HTTP
             initialDelaySeconds: 60
             periodSeconds: 15
           livenessProbe:
             httpGet:
-              path: /demo/actuator/health/liveness
+              path: /spring-hello/actuator/health/liveness
               port: 8080
               scheme: HTTP
             initialDelaySeconds: 15
