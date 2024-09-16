@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-mfe-shell
+  labels:
+#    pipelinesascode.tekton.dev/on-event: pull_request
+#    pipelinesascode.tekton.dev/on-target-branch: devteam
+#    repo_name: angular-mfe-shell
+    app: angular-mfe-shell
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular-mfe-shell
+  template:
+    metadata:
+      labels:
+        app: angular-mfe-shell
+    spec:
+      containers:
+        - name: angular-mfe-shell
+          image: ghcr.io/zawthanoo/angular-mfe-shell:1.0.0-5-70eccea
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8082
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /spring-hello/actuator/health/readiness
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 60
+            periodSeconds: 15
+          livenessProbe:
+            httpGet:
+              path: /spring-hello/actuator/health/liveness
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 15
+            periodSeconds: 15
+          env:
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          envFrom:
+            - configMapRef:
+                name: angular-mfe-shell
+          resources:
+            requests:
+              memory: 1024Mi
+          volumeMounts:
+            - name: angular-mfe-shell-config-volume
+              readOnly: true
+              mountPath: "/opt/mutu/config/application_config_override.yaml"
+              subPath: application_config_override.yaml
+            - name: angular-mfe-shell-secret-config-volume
+              readOnly: true
+              mountPath: "/opt/mutu/config/application_secret_override.yaml"
+              subPath: application_secret_override.yaml
+      imagePullSecrets:
+        - name: ghcr-io-registry
+      volumes:
+        - name: angular-mfe-shell-secret-config-volume
+          secret:
+            secretName: angular-mfe-shell
+        - name: angular-mfe-shell-config-volume
+          configMap:
+            name: angular-mfe-shell
+            items:
+              - key: application_config_override.yaml
+                path: application_config_override.yaml
