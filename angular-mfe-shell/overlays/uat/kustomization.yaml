@@ -17,4 +17,4 @@ configMapGenerator:
 images:
   - name: ghcr.io/zawthanoo/angular-mfe-shell
     newName: ghcr.io/zawthanoo/angular-mfe-shell
-    newTag: 9-4d5b1d0
+    newTag: 12-5e911ae
