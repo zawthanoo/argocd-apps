@@ -1,0 +1,20 @@
+{
+  "remote1": {
+      "remoteEntry": "http://localhost:4201/remoteEntry.js",
+      "exposedModule": "./Routes",
+      "route": "one",
+      "routeConfigName": "routes" 
+  },
+  "remote2": {
+      "remoteEntry": "http://localhost:4202/remoteEntry.js",
+      "exposedModule": "./Routes",
+      "route": "two",
+      "routeConfigName": "routes" 
+  },
+  "flight": {
+      "remoteEntry": "http://172.16.16.240/angular-mfe-module-1/remoteEntry.js",
+      "exposedModule": "./FlightModule",
+      "route": "three",
+      "routeConfigName": "routes" 
+  }
+}   

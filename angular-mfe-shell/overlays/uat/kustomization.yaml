@@ -1,21 +1,19 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
 resources:
   - ../../base
+
 namePrefix: uat-
+
 generatorOptions:
   disableNameSuffixHash: true
+
 configMapGenerator:
   - name: angular-mfe-shell
     files:
-      - application_config_override.yaml
-    literals:
-      - MAX_JVM_MEMORY=256
-      - MIN_JVM_MEMORY=256
-secretGenerator:
-  - name: angular-mfe-shell
-    files:
-      - application_secret_override.yaml
+      - mf.manifest.json
+
 images:
   - name: ghcr.io/zawthanoo/angular-mfe-shell
     newName: ghcr.io/zawthanoo/angular-mfe-shell

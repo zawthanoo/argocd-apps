@@ -26,15 +26,15 @@ spec:
               protocol: TCP
           readinessProbe:
             httpGet:
-              path: /spring-hello/actuator/health/readiness
-              port: 8080
+              path: /health/liveness 
+              port: 8082
               scheme: HTTP
             initialDelaySeconds: 60
             periodSeconds: 15
           livenessProbe:
             httpGet:
-              path: /spring-hello/actuator/health/liveness
-              port: 8080
+              path: /health/liveness 
+              port: 8082
               scheme: HTTP
             initialDelaySeconds: 15
             periodSeconds: 15
@@ -48,25 +48,18 @@ spec:
                 name: angular-mfe-shell
           resources:
             requests:
-              memory: 1024Mi
+              memory: 256Mi
           volumeMounts:
             - name: angular-mfe-shell-config-volume
               readOnly: true
-              mountPath: "/opt/mutu/config/application_config_override.yaml"
-              subPath: application_config_override.yaml
-            - name: angular-mfe-shell-secret-config-volume
-              readOnly: true
-              mountPath: "/opt/mutu/config/application_secret_override.yaml"
-              subPath: application_secret_override.yaml
+              mountPath: "/usr/share/nginx/html/angular-mfe-shell/mf.manifest.json"
+              subPath: mf.manifest.json
       imagePullSecrets:
         - name: ghcr-io-registry
       volumes:
-        - name: angular-mfe-shell-secret-config-volume
-          secret:
-            secretName: angular-mfe-shell
         - name: angular-mfe-shell-config-volume
           configMap:
             name: angular-mfe-shell
             items:
-              - key: application_config_override.yaml
-                path: application_config_override.yaml
+              - key: mf.manifest.json
+                path: mf.manifest.json
