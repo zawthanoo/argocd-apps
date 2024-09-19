@@ -12,4 +12,4 @@ generatorOptions:
 images:
   - name: ghcr.io/zawthanoo/angular-mfe-module-1
     newName: ghcr.io/zawthanoo/angular-mfe-module-1
-    newTag: 2-9517054
+    newTag: 3-bfc0794
