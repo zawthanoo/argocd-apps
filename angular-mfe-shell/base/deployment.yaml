@@ -26,14 +26,14 @@ spec:
               protocol: TCP
           readinessProbe:
             httpGet:
-              path: /health/liveness 
+              path: /health/readiness 
               port: 8082
               scheme: HTTP
             initialDelaySeconds: 60
             periodSeconds: 15
           livenessProbe:
             httpGet:
-              path: /health/liveness 
+              path: /health/liveness
               port: 8082
               scheme: HTTP
             initialDelaySeconds: 15
