@@ -29,9 +29,6 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: spec.nodeName
-          envFrom:
-            - configMapRef:
-                name: angular-mfe-module-1
           resources:
             requests:
               memory: 512Mi
