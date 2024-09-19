@@ -38,7 +38,7 @@ spec:
           volumeMounts:
             - name: angular-mfe-shell-config-volume
               readOnly: true
-              mountPath: "/usr/share/nginx/html/angular-mfe-shell/mf.manifest.json"
+              mountPath: "/usr/share/nginx/html/angular-mfe-shell/assets/mf.manifest.json"
               subPath: mf.manifest.json
       imagePullSecrets:
         - name: ghcr-io-registry
