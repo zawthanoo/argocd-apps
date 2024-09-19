@@ -18,6 +18,7 @@ spec:
   sources: []
   project: default
   syncPolicy:
-    syncOptions:
-    - PruneLast=true
+    automated: 
+       prune: true
+
 ```
