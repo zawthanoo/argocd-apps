@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-mfe-module-1
+  labels:
+#    pipelinesascode.tekton.dev/on-event: pull_request
+#    pipelinesascode.tekton.dev/on-target-branch: devteam
+#    repo_name: angular-mfe-module-1
+    app: angular-mfe-module-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular-mfe-module-1
+  template:
+    metadata:
+      labels:
+        app: angular-mfe-module-1
+    spec:
+      containers:
+        - name: angular-mfe-module-1
+          image: ghcr.io/zawthanoo/angular-mfe-module-1:1.0.0-5-70eccea
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8082
+              protocol: TCP
+          env:
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          envFrom:
+            - configMapRef:
+                name: angular-mfe-module-1
+          resources:
+            requests:
+              memory: 512Mi
+      imagePullSecrets:
+        - name: ghcr-io-registry
