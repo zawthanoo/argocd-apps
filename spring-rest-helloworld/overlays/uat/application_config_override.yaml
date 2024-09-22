@@ -1,4 +1,4 @@
 server:
-  port: 8282
+  port: 8082
   servlet:
     contextPath: /spring-hello
