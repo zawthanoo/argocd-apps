@@ -22,19 +22,19 @@ spec:
           image: ghcr.io/zawthanoo/springboot-template:1.0.0-5-70eccea
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8282
+            - containerPort: 8082
               protocol: TCP
           readinessProbe:
             httpGet:
               path: /demo/actuator/health/readiness
-              port: 8282
+              port: 8082
               scheme: HTTP
             initialDelaySeconds: 60
             periodSeconds: 15
           livenessProbe:
             httpGet:
               path: /demo/actuator/health/liveness
-              port: 8282
+              port: 8082
               scheme: HTTP
             initialDelaySeconds: 15
             periodSeconds: 15

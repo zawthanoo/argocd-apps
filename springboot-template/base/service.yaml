@@ -10,7 +10,7 @@ spec:
   type: ClusterIP
   sessionAffinity: None
   ports:
-    - name: 8282-tcp
-      port: 8282
+    - name: 8082-tcp
+      port: 8082
       protocol: TCP
-      targetPort: 8282
+      targetPort: 8082

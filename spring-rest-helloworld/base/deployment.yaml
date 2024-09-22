@@ -27,14 +27,14 @@ spec:
           readinessProbe:
             httpGet:
               path: /spring-hello/actuator/health/readiness
-              port: 8282
+              port: 8082
               scheme: HTTP
             initialDelaySeconds: 60
             periodSeconds: 15
           livenessProbe:
             httpGet:
               path: /spring-hello/actuator/health/liveness
-              port: 8282
+              port: 8082
               scheme: HTTP
             initialDelaySeconds: 15
             periodSeconds: 15
