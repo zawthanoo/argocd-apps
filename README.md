@@ -5,7 +5,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: spring-rest-helloworld
+  name: springboot-template
 spec:
   destination:
     name: ''
