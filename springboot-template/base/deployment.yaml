@@ -26,14 +26,14 @@ spec:
               protocol: TCP
           readinessProbe:
             httpGet:
-              path: /demo/actuator/health/readiness
+              path: /springboot-template/actuator/health/readiness
               port: 8082
               scheme: HTTP
             initialDelaySeconds: 60
             periodSeconds: 15
           livenessProbe:
             httpGet:
-              path: /demo/actuator/health/liveness
+              path: /springboot-template/actuator/health/liveness
               port: 8082
               scheme: HTTP
             initialDelaySeconds: 15
