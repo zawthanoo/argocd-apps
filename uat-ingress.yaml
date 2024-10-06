@@ -10,13 +10,6 @@ spec:
   rules:
   - http:
       paths:
-      - path: /spring-hello
-        pathType: Prefix
-        backend:
-          service:
-            name: uat-spring-rest-helloworld
-            port:
-              number: 8082
       - path: /angular-mfe-shell/
         pathType: Prefix
         backend:
@@ -31,3 +24,18 @@ spec:
             name: uat-angular-mfe-module-1
             port:
               number: 8082
+      - path: /spring-hello
+        pathType: Prefix
+        backend:
+          service:
+            name: uat-spring-rest-helloworld
+            port:
+              number: 8082
+      - path: /springboot-template
+        pathType: Prefix
+        backend:
+          service:
+            name: uat-springboot-template
+            port:
+              number: 8082
+              
