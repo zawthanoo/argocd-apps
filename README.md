@@ -1,29 +1,24 @@
 
-### Ingress Setup
+### argocd application
 
-Install ingress-nginx (https://kubernetes.github.io/ingress-nginx/deploy/)
-```
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.11.2/deploy/static/provider/cloud/deploy.yaml
-```
-
-Example Ingress 
-```
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
-  name: uat-ingress
+  name: spring-rest-helloworld
 spec:
-  ingressClassName: nginx
-  rules:
-  - http:
-      paths:
-      - path: /spring-hello
-        pathType: Prefix
-        backend:
-          service:
-            name: uat-spring-rest-helloworld
-            port:
-              number: 8080
+  destination:
+    name: ''
+    namespace: uat
+    server: 'https://kubernetes.default.svc'
+  source:
+    repoURL: 'https://github.com/zawthanoo/argocd-apps.git'
+    path: springboot-template/overlays/uat
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated: 
+       prune: true
+
 ```
-
-
